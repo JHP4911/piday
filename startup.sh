@@ -17,4 +17,4 @@ MY_ADDRESS=$(ifconfig | grep "inet " | grep -v "127.0.0.1" | awk '{print $2}')
 echo "My address is $MY_ADDRESS"
 ./showtext "My address is $MY_ADDRESS"
 
-python ./example_recognizer.py
+python ./example_recognizer.py 2>/tmp/piday.err >/tmp/piday.out
