@@ -194,6 +194,7 @@ def main():
             sys.stderr.write("Error, retrying: {}".format(e))
             sys.stderr.flush()
         print "ended"
+	quit()
 
 if __name__ == '__main__':
     main()

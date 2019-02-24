@@ -18,3 +18,6 @@ echo "My address is $MY_ADDRESS"
 ./showtext "My address is $MY_ADDRESS"
 
 python ./example_recognizer.py 2>/tmp/piday.err >/tmp/piday.out
+sleep 2
+./showtext 'shutting down'
+sudo poweroff
