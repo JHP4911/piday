@@ -182,14 +182,18 @@ def main():
 
     with MicrophoneStream(RATE, CHUNK) as stream:
         audio_generator = stream.generator()
-        requests = (types.StreamingRecognizeRequest(audio_content=content)
-                    for content in audio_generator)
+        while True:
+          requests = (types.StreamingRecognizeRequest(audio_content=content)
+            for content in audio_generator)
+          responses = client.streaming_recognize(streaming_config, requests)
 
-        responses = client.streaming_recognize(streaming_config, requests)
-
-        # Now, put the transcription responses to use.
-        listen_print_loop(responses)
-
+          try:
+            listen_print_loop(responses)
+            break
+          except Exception, e:
+            sys.stderr.write("Error, retrying: {}".format(e))
+            sys.stderr.flush()
+        print "ended"
 
 if __name__ == '__main__':
     main()
