@@ -124,6 +124,7 @@ def listen_print_loop(responses):
     final one, print a newline to preserve the finalized transcription.
     """
     num_chars_printed = 0
+    last_transcript = None
     for response in responses:
         if not response.results:
             continue
@@ -148,13 +149,17 @@ def listen_print_loop(responses):
         if not result.is_final:
             sys.stdout.write(transcript + overwrite_chars + '\r')
             sys.stdout.flush()
-            show_text(transcript)
+            if transcript != last_transcript:
+                show_text(transcript)
+                last_transcript = transcript
 
             num_chars_printed = len(transcript)
 
         else:
             print(transcript + overwrite_chars)
-            show_text(transcript)
+            if transcript != last_transcript:
+                show_text(transcript)
+                last_transcript = transcript
 
             # Exit recognition if any of the transcribed phrases could be
             # one of our keywords.
