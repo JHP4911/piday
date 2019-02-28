@@ -19,7 +19,7 @@ echo "My address is $MY_ADDRESS"
 sleep 2
 ./showtext 'quit quit quit to exit'
 
-python ./example_recognizer.py 2>/tmp/piday.err >/tmp/piday.out
+nohup python ./example_recognizer.py 2>/tmp/piday.err >/tmp/piday.out
 sleep 2
 ./showtext 'shutting down'
 sudo poweroff
