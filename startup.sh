@@ -21,5 +21,6 @@ sleep 2
 
 python ./example_recognizer.py 2>/tmp/piday.err >/tmp/piday.out
 sleep 2
+echo 'shutting down'
 ./showtext 'shutting down'
 sudo poweroff
