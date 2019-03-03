@@ -157,6 +157,7 @@ def listen_print_loop(responses):
 
         else:
             print(transcript + overwrite_chars)
+            sys.stdout.flush()
             if transcript != last_transcript:
                 show_text(transcript)
                 last_transcript = transcript
