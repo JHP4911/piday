@@ -19,7 +19,6 @@ echo "My address is $MY_ADDRESS"
 sleep 2
 ./showtext 'quit quit quit to exit'
 
-touch /tmp/piday.out
 python ./example_recognizer.py 2>/tmp/piday.err >/tmp/piday.out
 rc=$?
 sleep 2

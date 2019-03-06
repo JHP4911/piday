@@ -21,5 +21,5 @@ if [ -s /boot/files/wpa_supplicant.conf ];then
   cp /boot/files/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
 fi
 
-/bin/su - pi "/home/pi/workspace/piday/startup.sh" &
+/bin/su pi "/home/pi/workspace/piday/startup.sh" &
 exit 0
